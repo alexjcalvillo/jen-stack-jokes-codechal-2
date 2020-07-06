@@ -55,18 +55,18 @@ function getJokesList() {
 
 //render to the DOM our Jokes List
 function render(jokesList) {
-  console.log(jokesList[0].whoseJoke);
-  // empty and append our jokes list
+  // empty joke list
   $('#outputDiv').empty();
 
-  // loop through array and add to screen as a list?
+  // loop through array and append
+  // added a little formatting and style to make it look nice
   for (let i = 0; i < jokesList.length; i++) {
     $('#outputDiv').append(`
     <div style="margin-left: 25px;">
         <h3>${jokesList[i].whoseJoke}</h3>
         <ul>
-            <li>${jokesList[i].jokeQuestion}</li>
-            <li>${jokesList[i].punchLine}</li>
+            <li style="list-style: none">${jokesList[i].jokeQuestion}</li>
+            <li style="list-style: none">${jokesList[i].punchLine}</li>
         </ul>
     <div>
     `);
