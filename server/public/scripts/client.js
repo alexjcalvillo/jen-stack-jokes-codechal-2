@@ -20,7 +20,7 @@ function captureJoke() {
   console.log(joke);
   postJoke();
 }
-//send jokes to the server
+// post jokes to the server
 function postJoke() {
   $.ajax({
     type: 'POST',
@@ -42,10 +42,15 @@ function getJokesList() {
   $.ajax({
     type: 'GET',
     url: '/api/joker',
-  }).then((response) => {
-    console.log('GOT IT', response);
-    render(response);
-  });
+  })
+    .then((response) => {
+      console.log('GOT IT', response);
+      render(response);
+    })
+    .catch((err) => {
+      console.log(err);
+      alert('Something went terribly wrong');
+    });
 }
 
 //render to the DOM our Jokes List
